@@ -68,6 +68,114 @@ let mangaList = [
         name: "Demon Slayer",
         price: 17,
         age: 14
+    },
+    {
+        id: 10,
+        name: "Evangelion",
+        price: 14,
+        age: 18
+    },
+    {
+        id: 11,
+        name: "Berserk",
+        price: 15,
+        age: 18
+    },
+    {
+        id: 12,
+        name: "Given",
+        price: 16,
+        age: 18
+    },
+    {
+        id: 13,
+        name: "Blue Lock",
+        price: 15,
+        age: 14
+    },
+    {
+        id: 14,
+        name: "Orange",
+        price: 16,
+        age: 14
+    },
+    {
+        id: 15,
+        name: "Spy x Family",
+        price: 17,
+        age: 14
+    },
+    {
+        id: 16,
+        name: "Hunter x Hunter",
+        price: 12,
+        age: 14
+    },
+    {
+        id: 17,
+        name: "Tokyo Ghoul",
+        price: 16,
+        age: 14
+    },
+    {
+        id: 18,
+        name: "Banana Fish",
+        price: 15,
+        age: 18
+    },
+    {
+        id: 19,
+        name: "Hajime no Ippo",
+        price: 12,
+        age: 14
+    },
+    {
+        id: 20,
+        name: "One Punch Man",
+        price: 14,
+        age: 14
+    },
+    {
+        id: 21,
+        name: "Slam Dunk",
+        price: 15,
+        age: 14
+    },
+    {
+        id: 22,
+        name: "Killing Stalking",
+        price: 17,
+        age: 18
+    },
+    {
+        id: 23,
+        name: "Gantz",
+        price: 16,
+        age: 18
+    },
+    {
+        id: 24,
+        name: "Ping Pong",
+        price: 12,
+        age: 14
+    },
+    {
+        id: 25,
+        name: "Hellsing",
+        price: 16,
+        age: 18
+    },
+    {
+        id: 26,
+        name: "Vinland Saga",
+        price: 15,
+        age: 14
+    },
+    {
+        id: 27,
+        name: "Oyasumi Punpun",
+        price: 16,
+        age: 18
     }
 ]
 
@@ -101,7 +209,7 @@ do {
                     alert(`No puede agregar ${selectedItem.name} a su carrito ya que es para mayores de 18 años.`);
                 }
             } else {
-                alert("Por favor elija una categoría disponible");
+                alert("Por favor intente nuevamente");
             }
             break
         case 2:
