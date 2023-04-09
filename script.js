@@ -182,12 +182,14 @@ let mangaList = [
 
 let cart = []
 
-let total = 0
-do {
-    menu = menuReq(mainMessage)
+let total = 0;
+let comprar = true;
+let menu = 0;
+while (comprar) {
+    menu = menuReq(mainMessage);
     switch (menu) {
         case 1:
-            let filteredList = mangaList.filter(item => item.age <= age)
+            let filteredList = mangaList.filter(item => item.age <= age || (age >= 18 && item.age == 18));
             let searchQuery = prompt("Ingrese el título del manga que está buscando:").toLowerCase()
             if (searchQuery) {
                 filteredList = filteredList.filter(item => item.name.toLowerCase().includes(searchQuery))
@@ -199,30 +201,30 @@ do {
             let product = menuReq(itemMessage)
             let selectedItem = mangaList.find(item => item.id === product)
             if (selectedItem) {
-                if (age == 18 && selectedItem.age == 18) {
+                if (age >= 18 || selectedItem.age <= age) {
                     cart.push(selectedItem);
                     total += selectedItem.price;
                     alert(`El artículo ${selectedItem.name} ha sido agregado al carrito.`);
                     console.log(`Valor Neto $${total} USD`);
 
                 } else {
-                    alert(`No puede agregar ${selectedItem.name} a su carrito ya que es para mayores de 18 años.`);
+                    alert(`No puede agregar ${selectedItem.name} a su carrito ya que es para mayores de ${selectedItem.age} años.`);
                 }
             } else {
                 alert("Por favor intente nuevamente");
             }
-            break
+            break;
         case 2:
-            case 2:
-                let allItemsMessage = ""
-                mangaList.forEach(item => {
-                    if (age >= 18 || item.age < 18) {
-                        allItemsMessage += `${item.id} - ${item.name} $${item.price} USD\n`
-                    }
-                })
-                alert(allItemsMessage)
-                break
-            
+        case 2:
+            let allItemsMessage = ""
+            mangaList.forEach(item => {
+                if (age >= 18 || item.age < 18) {
+                    allItemsMessage += `${item.id} - ${item.name} $${item.price} USD\n`
+                }
+            })
+            alert(allItemsMessage)
+            break
+
         case 3:
             if (cart.length > 0) {
                 console.log("Artículos en el carrito:")
@@ -248,19 +250,18 @@ do {
             }
             break
         case 5:
-            alert("Gracias por su compra!")
-            break
+            alert("Gracias por su compra!");
+            comprar = false;
+            break;
         case 6:
-            alert("Vuelva pronto!")
-            break
-        case 0:
-            break
+            alert("Vuelva pronto!");
+            comprar = false;
+            break;
         default:
-            alert("Ingrese una categoría correcta")
-            break
+            alert("Ingrese una categoría correcta");
+            break;
     }
 }
-while (menu !== 0 && menu !== 5)
 function menuReq(message) {
-    return Number(prompt(message))
+    return Number(prompt(message));
 }
